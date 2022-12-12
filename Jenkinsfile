@@ -15,12 +15,6 @@ pipeline {
             }
         }
         stage('Deploy') {
-            agent {
-                docker {
-                    image 'nginx:latest'
-                    args '-p 8080:80'
-                }
-            }
             steps {
                 sh "mv ./index.html /var/"
                 echo 'Deploying'
